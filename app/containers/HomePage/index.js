@@ -5,14 +5,31 @@
  *
  */
 
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import React, {useState, useEffect} from 'react';
+import CenteredTabs from '../../components/CenteredTabs/Loadable';
+import axios from 'axios';
+import  { CircularProgress } from '@material-ui/core';
+
 
 export default function HomePage() {
-  return (
-    <h1>
-      <FormattedMessage {...messages.header} />
-    </h1>
-  );
+
+  const [state, setState] = useState(null);
+
+  useEffect(() => {
+   axios.get('http://207.154.197.252:5000/posts').then((res) => {
+    const response = res.data;
+    setState(response)
+    });
+  }, [])
+
+
+
+    return (
+      <>
+      { state
+        ? <CenteredTabs state={state} />
+        : <CircularProgress  />
+      }
+      </>
+    );
 }
