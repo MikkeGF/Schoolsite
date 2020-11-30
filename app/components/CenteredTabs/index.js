@@ -9,8 +9,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Animation from '../Animation/Loadable';
 import PropTypes from 'prop-types';
+import Animation from '../Animation/Loadable';
 import Social from '../Social/Loadable';
 
 // import styled from 'styled-components';
@@ -23,7 +23,6 @@ const useStyles = makeStyles({
 });
 
 function CenteredTabs({ animations }) {
-
   const classes = useStyles();
   const [value, setValue] = useState(0);
   console.log(value);
@@ -46,20 +45,15 @@ function CenteredTabs({ animations }) {
         </Tabs>
       </Paper>
       <div>
-        { value === 0 &&
-          animations.map((animation) => (
-              <Animation animation={animation} key={animation.name} />
+        {value === 0 &&
+          animations.map(animation => (
+            <Animation animation={animation} key={animation.name} />
           ))}
       </div>
-      <div>
-      { value === 1 &&
-        <Social />
-      }
-      </div>
+      <div>{value === 1 && <Social />}</div>
     </React.Fragment>
   );
 }
-
- CenteredTabs.propTypes = {animations: PropTypes.array.isRequired};
+CenteredTabs.propTypes = { animations: PropTypes.array.isRequired };
 
 export default memo(CenteredTabs);
