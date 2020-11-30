@@ -25,7 +25,7 @@ justify-content: center;
 `;
 
 function Animation({animation}) {
-
+console.log(animation);
   return (
     <>
     <Header>{animation.name}</Header>

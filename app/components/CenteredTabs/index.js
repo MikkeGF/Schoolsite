@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-function CenteredTabs({ state }) {
+function CenteredTabs({ animations }) {
 
   const classes = useStyles();
   const [value, setValue] = useState(0);
@@ -47,8 +47,8 @@ function CenteredTabs({ state }) {
       </Paper>
       <div>
         { value === 0 &&
-          state.map((animation) => (
-              <Animation animation={animation} />
+          animations.map((animation) => (
+              <Animation animation={animation} key={animation.name} />
           ))}
       </div>
       <div>
@@ -60,6 +60,6 @@ function CenteredTabs({ state }) {
   );
 }
 
- CenteredTabs.propTypes = {state: PropTypes.array.isRequired};
+ CenteredTabs.propTypes = {animations: PropTypes.array.isRequired};
 
 export default memo(CenteredTabs);
