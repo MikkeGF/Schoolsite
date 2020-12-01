@@ -5,18 +5,16 @@
  *
  */
 
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import CenteredTabs from '../../components/CenteredTabs/Loadable';
 // import axios from 'axios';
-import  { CircularProgress } from '@material-ui/core';
+// import  { CircularProgress } from '@material-ui/core';
 import ski from '../../images/ski.gif';
 import burning from '../../images/burningsmaller.gif';
 import balloon from '../../images/balloon.gif';
+import skate from '../../images/apple.gif';
 
-
-
-export default function HomePage() {
-
+export default function HomePage(props) {
   // const [state, setState] = useState(null);
 
   // useEffect(() => {
@@ -28,25 +26,27 @@ export default function HomePage() {
 
   const animations = [
     {
-      name: "Balloon",
-      url: balloon
+      name: 'Skier',
+      url: ski,
     },
     {
-      name: "Burning House",
-      url: burning
+      name: 'Balloon',
+      url: balloon,
+    },
+
+    {
+      name: 'Skate',
+      url: skate,
     },
     {
-      name: "Skier",
-      url: ski
+      name: 'Burning House',
+      url: burning,
+    },
+  ];
 
-    }
-  ]
-
-
-
-    return (
-      <>
-       <CenteredTabs animations={animations} />
-      </>
-    );
+  return (
+    <>
+      <CenteredTabs animations={animations} {...props} />
+    </>
+  );
 }

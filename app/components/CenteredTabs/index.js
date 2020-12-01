@@ -4,7 +4,7 @@
  *
  */
 
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -22,19 +22,34 @@ const useStyles = makeStyles({
   },
 });
 
-function CenteredTabs({ animations }) {
+function CenteredTabs(props) {
+  const { animations } = props;
+
+  const { match, history } = props;
+  const { params } = match;
+  const { page } = params;
+
+  const tabNameToIndex = {
+    0: 'animations',
+    1: 'social',
+  };
+  const indexToTabName = {
+    animations: 0,
+    social: 1,
+  };
+  const [selectedTab, setSelectedTab] = React.useState(indexToTabName[page]);
+
   const classes = useStyles();
-  const [value, setValue] = useState(0);
-  console.log(value);
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    history.push(`${tabNameToIndex[newValue]}`);
+    setSelectedTab(newValue);
   };
 
   return (
     <React.Fragment>
       <Paper className={classes.root}>
         <Tabs
-          value={value}
+          value={selectedTab}
           onChange={handleChange}
           indicatorColor="secondary"
           textColor="secondary"
@@ -45,15 +60,19 @@ function CenteredTabs({ animations }) {
         </Tabs>
       </Paper>
       <div>
-        {value === 0 &&
+        {selectedTab === 0 &&
           animations.map(animation => (
             <Animation animation={animation} key={animation.name} />
           ))}
       </div>
-      <div>{value === 1 && <Social />}</div>
+      <div>{selectedTab === 1 && <Social />}</div>
     </React.Fragment>
   );
 }
-CenteredTabs.propTypes = { animations: PropTypes.array.isRequired };
+CenteredTabs.propTypes = {
+  animations: PropTypes.array.isRequired,
+  match: PropTypes.object,
+  history: PropTypes.object,
+};
 
 export default memo(CenteredTabs);
