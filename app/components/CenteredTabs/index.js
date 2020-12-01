@@ -4,13 +4,13 @@
  *
  */
 
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Animation from '../Animation/Loadable';
 import PropTypes from 'prop-types';
+import Animation from '../Animation/Loadable';
 import Social from '../Social/Loadable';
 
 // import styled from 'styled-components';
@@ -22,20 +22,34 @@ const useStyles = makeStyles({
   },
 });
 
-function CenteredTabs({ state }) {
+function CenteredTabs(props) {
+  const { animations } = props;
+
+  const { match, history } = props;
+  const { params } = match;
+  const { page } = params;
+
+  const tabNameToIndex = {
+    0: 'animations',
+    1: 'social',
+  };
+  const indexToTabName = {
+    animations: 0,
+    social: 1,
+  };
+  const [selectedTab, setSelectedTab] = React.useState(indexToTabName[page]);
 
   const classes = useStyles();
-  const [value, setValue] = useState(0);
-  console.log(value);
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    history.push(`${tabNameToIndex[newValue]}`);
+    setSelectedTab(newValue);
   };
 
   return (
     <React.Fragment>
       <Paper className={classes.root}>
         <Tabs
-          value={value}
+          value={selectedTab}
           onChange={handleChange}
           indicatorColor="secondary"
           textColor="secondary"
@@ -46,20 +60,19 @@ function CenteredTabs({ state }) {
         </Tabs>
       </Paper>
       <div>
-        { value === 0 &&
-          state.map((animation) => (
-              <Animation animation={animation} />
+        {selectedTab === 0 &&
+          animations.map(animation => (
+            <Animation animation={animation} key={animation.name} />
           ))}
       </div>
-      <div>
-      { value === 1 &&
-        <Social />
-      }
-      </div>
+      <div>{selectedTab === 1 && <Social />}</div>
     </React.Fragment>
   );
 }
-
- CenteredTabs.propTypes = {state: PropTypes.array.isRequired};
+CenteredTabs.propTypes = {
+  animations: PropTypes.array.isRequired,
+  match: PropTypes.object,
+  history: PropTypes.object,
+};
 
 export default memo(CenteredTabs);

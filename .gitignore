@@ -3,6 +3,8 @@ coverage
 build
 node_modules
 stats.json
+remove.py
+toDroplet.py
 
 # Cruft
 .DS_Store

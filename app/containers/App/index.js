@@ -8,12 +8,12 @@
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
-import Social from '../../components/Social';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Ski from '../../components/Ski';
+// import Social from '../../components/Social';
+// import Ski from '../../components/Ski';
 
 import GlobalStyle from '../../global-styles';
 
@@ -21,8 +21,8 @@ export default function App() {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/test" component={Ski} />
+        <Redirect exact from="/" to="/animations" />
+        <Route exact path="/:page?" render={props => <HomePage {...props} />} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
