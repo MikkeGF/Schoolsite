@@ -10,12 +10,12 @@ import React, { memo } from 'react';
 import Animation from '../Animation/Loadable';
 
 function Group(props) {
- const {groupAnimation} = props;
+  const { groupAnimation } = props;
   return (
     <>
-    <Animation animation={groupAnimation} />
+      <Animation animation={groupAnimation} />
     </>
-  )
+  );
 }
 
 Group.propTypes = {};

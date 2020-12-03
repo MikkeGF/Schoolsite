@@ -15,7 +15,6 @@ import balloon from '../../images/balloon.gif';
 import skate from '../../images/apple.gif';
 import text from '../../images/text.gif';
 
-
 export default function HomePage(props) {
   // const [state, setState] = useState(null);
 
@@ -49,9 +48,9 @@ export default function HomePage(props) {
   const groupAnimation = [
     {
       name: 'text-transform',
-      url: text
-    }
-  ]
+      url: text,
+    },
+  ];
 
   return (
     <>

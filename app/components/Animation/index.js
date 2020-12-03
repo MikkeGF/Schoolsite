@@ -27,7 +27,6 @@ const Gif = styled.img`
 const Header = styled.h1`
   display: flex;
   justify-content: center;
-
 `;
 
 function Animation({ animation }) {
