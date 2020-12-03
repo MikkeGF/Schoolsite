@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-self: center;
   align-items: center;
+  background-color: #fff8e7;
 
   justify-content: center;
 `;
@@ -26,6 +27,7 @@ const Gif = styled.img`
 const Header = styled.h1`
   display: flex;
   justify-content: center;
+
 `;
 
 function Animation({ animation }) {

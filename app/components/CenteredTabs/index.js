@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import Animation from '../Animation/Loadable';
 import Social from '../Social/Loadable';
 
+
 // import styled from 'styled-components';
 
 const useStyles = makeStyles({
@@ -23,7 +24,8 @@ const useStyles = makeStyles({
 });
 
 function CenteredTabs(props) {
-  const { animations } = props;
+  const { animations, group } = props;
+
 
   const { match, history } = props;
   const { params } = match;
@@ -32,10 +34,12 @@ function CenteredTabs(props) {
   const tabNameToIndex = {
     0: 'animations',
     1: 'social',
+    2: 'group'
   };
   const indexToTabName = {
     animations: 0,
     social: 1,
+    group: 2
   };
   const [selectedTab, setSelectedTab] = React.useState(indexToTabName[page]);
 
@@ -57,6 +61,7 @@ function CenteredTabs(props) {
         >
           <Tab label="Animations" />
           <Tab label="Facebook/Twitter" />
+          <Tab label="Group animation" />
         </Tabs>
       </Paper>
       <div>
@@ -65,7 +70,15 @@ function CenteredTabs(props) {
             <Animation animation={animation} key={animation.name} />
           ))}
       </div>
-      <div>{selectedTab === 1 && <Social />}</div>
+      <div>
+        {selectedTab === 1 && <Social />}
+      </div>
+      <div>
+        {selectedTab === 2 &&
+          group.map(animation => (
+            <Animation animation={animation} key={animation.name} />
+          ))}
+      </div>
     </React.Fragment>
   );
 }
