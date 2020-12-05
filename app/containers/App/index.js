@@ -12,6 +12,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import Group from '../../components/Group';
 // import Social from '../../components/Social';
 // import Ski from '../../components/Ski';
 
@@ -23,7 +24,7 @@ export default function App() {
       <Switch>
         <Redirect exact from="/" to="/animations" />
         <Route exact path="/:page?" render={props => <HomePage {...props} />} />
-        <Route component={NotFoundPage} />
+        <Route exact path="/testi/testi" component={Group} />
       </Switch>
       <GlobalStyle />
     </div>
