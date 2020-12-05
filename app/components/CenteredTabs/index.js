@@ -12,6 +12,7 @@ import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
 import Animation from '../Animation/Loadable';
 import Social from '../Social/Loadable';
+import Gatest from '../Gatest';
 
 // import styled from 'styled-components';
 
@@ -33,11 +34,13 @@ function CenteredTabs(props) {
     0: 'animations',
     1: 'social',
     2: 'group',
+    3: 'gatesting',
   };
   const indexToTabName = {
     animations: 0,
     social: 1,
     group: 2,
+    gatesting: 3,
   };
   const [selectedTab, setSelectedTab] = React.useState(indexToTabName[page]);
 
@@ -60,6 +63,7 @@ function CenteredTabs(props) {
           <Tab label="Animations" />
           <Tab label="Facebook/Twitter" />
           <Tab label="Group animation" />
+          <Tab label="Analytics testing" />
         </Tabs>
       </Paper>
       <div>
@@ -75,11 +79,13 @@ function CenteredTabs(props) {
             <Animation animation={animation} key={animation.name} />
           ))}
       </div>
+      <div>{selectedTab === 3 && <Gatest />}</div>
     </React.Fragment>
   );
 }
 CenteredTabs.propTypes = {
   animations: PropTypes.array.isRequired,
+  group: PropTypes.array,
   match: PropTypes.object,
   history: PropTypes.object,
 };

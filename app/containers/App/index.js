@@ -14,7 +14,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 // import Social from '../../components/Social';
 // import Ski from '../../components/Ski';
-
+// import Gatest from '../../components/Gatest';
 import GlobalStyle from '../../global-styles';
 
 export default function App() {

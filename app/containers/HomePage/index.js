@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import ReactGA from 'react-ga';
 import CenteredTabs from '../../components/CenteredTabs/Loadable';
 // import axios from 'axios';
 // import  { CircularProgress } from '@material-ui/core';
@@ -14,6 +15,9 @@ import burning from '../../images/burningsmaller.gif';
 import balloon from '../../images/balloon.gif';
 import skate from '../../images/apple.gif';
 import text from '../../images/text.gif';
+
+ReactGA.initialize('UA-182287749-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 export default function HomePage(props) {
   // const [state, setState] = useState(null);
