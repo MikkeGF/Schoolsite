@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 });
 
 function CenteredTabs(props) {
-  const { animations, group } = props;
+  const { animations, group, ownAnimation } = props;
 
   const { match, history } = props;
   const { params } = match;
@@ -33,17 +33,19 @@ function CenteredTabs(props) {
     0: 'animations',
     1: 'social',
     2: 'group',
+    3: 'ownAnimation',
   };
   const indexToTabName = {
     animations: 0,
     social: 1,
     group: 2,
+    ownAnimation: 3,
   };
   const [selectedTab, setSelectedTab] = React.useState(indexToTabName[page]);
 
   const classes = useStyles();
   const handleChange = (event, newValue) => {
-    history.push(`${tabNameToIndex[newValue]}`);
+    history.push(`/home/${tabNameToIndex[newValue]}`);
     setSelectedTab(newValue);
   };
 
@@ -57,9 +59,10 @@ function CenteredTabs(props) {
           textColor="secondary"
           centered
         >
-          <Tab label="Animations" />
+          <Tab label="Lesson Animations" />
           <Tab label="Facebook/Twitter" />
           <Tab label="Group animation" />
+          <Tab label="Own animation" />
         </Tabs>
       </Paper>
       <div>
@@ -75,10 +78,18 @@ function CenteredTabs(props) {
             <Animation animation={animation} key={animation.name} />
           ))}
       </div>
+      <div>
+        {selectedTab === 3 &&
+          ownAnimation.map(animation => (
+            <Animation animation={animation} key={animation.name} />
+          ))}
+      </div>
     </React.Fragment>
   );
 }
 CenteredTabs.propTypes = {
+  ownAnimation: PropTypes.array.isRequired,
+  group: PropTypes.array.isRequired,
   animations: PropTypes.array.isRequired,
   match: PropTypes.object,
   history: PropTypes.object,

@@ -21,8 +21,13 @@ export default function App() {
   return (
     <div>
       <Switch>
-        <Redirect exact from="/" to="/animations" />
-        <Route exact path="/:page?" render={props => <HomePage {...props} />} />
+        <Redirect exact from="/" to="/home/animations" />
+        <Redirect exact from="/home" to="/home/animations" />
+        <Route
+          exact
+          path="/home/:page?"
+          render={props => <HomePage {...props} />}
+        />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

@@ -14,7 +14,7 @@ import burning from '../../images/burningsmaller.gif';
 import balloon from '../../images/balloon.gif';
 import skate from '../../images/apple.gif';
 import text from '../../images/text.gif';
-
+import joulu from '../../images/joulu.gif';
 export default function HomePage(props) {
   // const [state, setState] = useState(null);
 
@@ -39,10 +39,6 @@ export default function HomePage(props) {
       name: 'Skate',
       url: skate,
     },
-    {
-      name: 'Burning House',
-      url: burning,
-    },
   ];
 
   const groupAnimation = [
@@ -52,9 +48,25 @@ export default function HomePage(props) {
     },
   ];
 
+  const ownAnimation = [
+    {
+      name: 'Burning House',
+      url: burning,
+    },
+    {
+      name: 'Merry Christmas',
+      url: joulu,
+    },
+  ];
+
   return (
     <>
-      <CenteredTabs group={groupAnimation} animations={animations} {...props} />
+      <CenteredTabs
+        group={groupAnimation}
+        ownAnimation={ownAnimation}
+        animations={animations}
+        {...props}
+      />
     </>
   );
 }
