@@ -24,11 +24,10 @@ const useStyles = makeStyles({
 
 function CenteredTabs(props) {
   const { animations, group, ownAnimation } = props;
-
   const { match, history } = props;
   const { params } = match;
   const { page } = params;
-
+  
   const tabNameToIndex = {
     0: 'animations',
     1: 'social',

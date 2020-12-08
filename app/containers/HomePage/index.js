@@ -5,9 +5,10 @@
  *
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import axios from 'axios';
 import CenteredTabs from '../../components/CenteredTabs/Loadable';
-// import axios from 'axios';
 // import  { CircularProgress } from '@material-ui/core';
 import ski from '../../images/ski.gif';
 import burning from '../../images/burningsmaller.gif';
@@ -16,14 +17,14 @@ import skate from '../../images/apple.gif';
 import text from '../../images/text.gif';
 import joulu from '../../images/joulu.gif';
 export default function HomePage(props) {
-  // const [state, setState] = useState(null);
+  const [data, setData] = useState(null);
 
-  // useEffect(() => {
-  //  axios.get('http://207.154.197.252:5000/posts').then((res) => {
-  //   const response = res.data;
-  //   setState(response)
-  //   });
-  // }, [])
+  useEffect(() => {
+    axios.get('https://40.69.209.24:4000/posts').then(res => {
+      const response = res.data;
+      setData(response);
+    });
+  }, []);
 
   const animations = [
     {
@@ -63,6 +64,7 @@ export default function HomePage(props) {
     <>
       <CenteredTabs
         group={groupAnimation}
+        data={data}
         ownAnimation={ownAnimation}
         animations={animations}
         {...props}
