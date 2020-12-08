@@ -64,7 +64,6 @@ export default function HomePage(props) {
     <>
       <CenteredTabs
         group={groupAnimation}
-        data={data}
         ownAnimation={ownAnimation}
         animations={animations}
         {...props}
