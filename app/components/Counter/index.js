@@ -9,8 +9,8 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { AwesomeButton } from "react-awesome-button";
-import "react-awesome-button/src/styles/styles.scss";
+import { AwesomeButton } from 'react-awesome-button';
+import 'react-awesome-button/src/styles/styles.scss';
 import './Button.scss';
 
 import { decrement, increment } from '../../containers/Home/actions';
@@ -32,7 +32,6 @@ const Wrapper = styled.div`
   margin: 10px;
   padding: 10px;
   background-color: lightblue;
-
 `;
 
 const ButtonWrapper = styled.div`
@@ -45,29 +44,35 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-
-
 function Counter() {
   const count = useSelector(state => state.homereducer.count);
   const dispatch = useDispatch();
 
   const handleIncrement = () => {
     dispatch(increment());
-  }
+  };
   const handleDecrement = () => {
     dispatch(decrement());
-  }
+  };
 
   return (
     <Section>
       <Wrapper>
-      <h1>Redux testing</h1>
+        <h1>Redux testing</h1>
         <h3> {`Count: ${count} `}</h3>
         <ButtonWrapper>
-          <AwesomeButton type="secondary" size="small" onPress={handleDecrement} >
+          <AwesomeButton
+            type="secondary"
+            size="small"
+            onPress={handleDecrement}
+          >
             -
           </AwesomeButton>
-          <AwesomeButton type="secondary" size="small" onPress={handleIncrement} >
+          <AwesomeButton
+            type="secondary"
+            size="small"
+            onPress={handleIncrement}
+          >
             +
           </AwesomeButton>
         </ButtonWrapper>

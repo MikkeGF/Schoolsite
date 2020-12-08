@@ -34,14 +34,14 @@ function CenteredTabs(props) {
     1: 'social',
     2: 'group',
     3: 'ownAnimation',
-    4: 'redux'
+    4: 'redux',
   };
   const indexToTabName = {
     animations: 0,
     social: 1,
     group: 2,
     ownAnimation: 3,
-    redux: 4
+    redux: 4,
   };
   const [selectedTab, setSelectedTab] = React.useState(indexToTabName[page]);
 
@@ -87,11 +87,7 @@ function CenteredTabs(props) {
             <Animation animation={animation} key={animation.name} />
           ))}
       </div>
-      <div>
-      {selectedTab === 4 &&
-        <Home />
-      }
-      </div>
+      <div>{selectedTab === 4 && <Home />}</div>
     </React.Fragment>
   );
 }
