@@ -12,6 +12,7 @@ import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
 import Animation from '../Animation/Loadable';
 import Social from '../Social/Loadable';
+import Home from '../../containers/Home/Loadable';
 
 // import styled from 'styled-components';
 
@@ -33,12 +34,14 @@ function CenteredTabs(props) {
     1: 'social',
     2: 'group',
     3: 'ownAnimation',
+    4: 'redux',
   };
   const indexToTabName = {
     animations: 0,
     social: 1,
     group: 2,
     ownAnimation: 3,
+    redux: 4,
   };
   const [selectedTab, setSelectedTab] = React.useState(indexToTabName[page]);
 
@@ -62,6 +65,7 @@ function CenteredTabs(props) {
           <Tab label="Facebook/Twitter" />
           <Tab label="Group animation" />
           <Tab label="Own animation" />
+          <Tab label="Redux" />
         </Tabs>
       </Paper>
       <div>
@@ -83,6 +87,7 @@ function CenteredTabs(props) {
             <Animation animation={animation} key={animation.name} />
           ))}
       </div>
+      <div>{selectedTab === 4 && <Home />}</div>
     </React.Fragment>
   );
 }

@@ -7,7 +7,7 @@
 import { DECREMENT, INCREMENT } from './constants';
 
 export const initialState = {
-  count: 5,
+  count: 0,
 };
 
 /* eslint-disable default-case, no-param-reassign */
