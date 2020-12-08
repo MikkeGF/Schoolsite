@@ -14,7 +14,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 // import Social from '../../components/Social';
 // import Ski from '../../components/Ski';
-import Counter from '../../components/Counter/Loadable';
+import Home from 'containers/Home/Loadable';
 import GlobalStyle from '../../global-styles';
 
 export default function App() {
@@ -28,7 +28,7 @@ export default function App() {
           path="/home/:page?"
           render={props => <HomePage {...props} />}
         />
-        <Route exact path="/home/sites/redux" component={Counter} />
+        <Route exact path="/home/sites/redux" component={Home} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
