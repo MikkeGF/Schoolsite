@@ -16,6 +16,9 @@ import balloon from '../../images/balloon.gif';
 import skate from '../../images/apple.gif';
 import text from '../../images/text.gif';
 import joulu from '../../images/joulu.gif';
+import moonstar from '../../images/moonstar.gif'
+import skeleton from '../../images/skeleton.gif'
+import zoom from '../../images/zoom.gif'
 export default function HomePage(props) {
   // const [data, setData] = useState(null);
 
@@ -46,6 +49,18 @@ export default function HomePage(props) {
     {
       name: 'text-transform',
       url: text,
+    },
+    {
+      name: 'Moonstar',
+      url: moonstar,
+    },
+    {
+      name: 'Skeleton',
+      url: skeleton,
+    },
+    {
+      name: 'Camera Zoom',
+      url: zoom,
     },
   ];
 
