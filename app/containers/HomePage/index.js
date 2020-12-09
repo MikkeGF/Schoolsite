@@ -19,12 +19,7 @@ import joulu from '../../images/joulu.gif';
 export default function HomePage(props) {
   // const [data, setData] = useState(null);
 
-  // useEffect(() => {
-  //   axios.get('https://40.69.209.24:4000/posts').then(res => {
-  //     const response = res.data;
-  //     setData(response);
-  //   });
-  // }, []);
+  
 
   const animations = [
     {

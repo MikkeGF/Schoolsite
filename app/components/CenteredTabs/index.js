@@ -4,7 +4,7 @@
  *
  */
 
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -13,6 +13,9 @@ import PropTypes from 'prop-types';
 import Animation from '../Animation/Loadable';
 import Social from '../Social/Loadable';
 import Home from '../../containers/Home/Loadable';
+import GroupAnimations from '../../containers/GroupAnimations/Loadable';
+
+
 
 // import styled from 'styled-components';
 
@@ -28,7 +31,7 @@ function CenteredTabs(props) {
   const { match, history } = props;
   const { params } = match;
   const { page } = params;
-  
+
   const tabNameToIndex = {
     0: 'animations',
     1: 'social',
@@ -77,9 +80,8 @@ function CenteredTabs(props) {
       <div>{selectedTab === 1 && <Social />}</div>
       <div>
         {selectedTab === 2 &&
-          group.map(animation => (
-            <Animation animation={animation} key={animation.name} />
-          ))}
+          <GroupAnimations />
+        }
       </div>
       <div>
         {selectedTab === 3 &&

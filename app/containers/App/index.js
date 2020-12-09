@@ -16,6 +16,7 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 // import Ski from '../../components/Ski';
 import Home from 'containers/Home/Loadable';
 import GlobalStyle from '../../global-styles';
+import GroupAnimations from 'containers/GroupAnimations/Loadable';
 
 export default function App() {
   return (
@@ -28,7 +29,7 @@ export default function App() {
           path="/home/:page?"
           render={props => <HomePage {...props} />}
         />
-        <Route exact path="/home/sites/redux" component={Home} />
+        <Route exact path="/home/sites/saga" component={GroupAnimations} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
