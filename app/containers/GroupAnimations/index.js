@@ -39,7 +39,7 @@ export function GroupAnimations() {
   }, [dispatch]);
 
   const state = useSelector(state => state.animationreducer.data)
-
+  console.log(state)
   return (
     <div>
       <Helmet>
