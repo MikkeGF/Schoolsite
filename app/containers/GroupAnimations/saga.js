@@ -9,7 +9,7 @@ import { GET_ANIMATIONS } from './constants';
 export function requestAnimations() {
   return axios.request({
     method: 'get',
-    url: 'https://40.69.209.24:4000/posts'
+    url: 'https://40.69.209.24:433/posts'
   })
 }
 
