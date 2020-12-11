@@ -19,6 +19,8 @@ import joulu from '../../images/joulu.gif';
 import moonstar from '../../images/moonstar.gif'
 import skeleton from '../../images/skeleton.gif'
 import zoom from '../../images/zoom.gif'
+import hello from '../../images/hello.gif'
+import rotate from '../../images/react.gif'
 export default function HomePage(props) {
   // const [data, setData] = useState(null);
 
@@ -61,6 +63,14 @@ export default function HomePage(props) {
     {
       name: 'Camera Zoom',
       url: zoom,
+    },
+    {
+      name: 'Rotate text',
+      url: rotate,
+    },
+    {
+      name: 'Typing text effect',
+      url: hello,
     },
   ];
 
