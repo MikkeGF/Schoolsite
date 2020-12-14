@@ -6,7 +6,7 @@ import { GET_ANIMATIONS } from './constants';
 export function requestAnimations() {
   return axios.request({
     method: 'get',
-    url: 'https://40.69.209.24:443/posts',
+    url: 'https://mikkegf.me:443/posts',
   });
 }
 
